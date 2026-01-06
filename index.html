@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUNIOREX | תדריך פרק - AI ועיצוב UI/UX</title>
+    <title>JUNIOREX | תקציר הפרק - AI ועיצוב UI/UX</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -61,10 +61,6 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
-        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
-        .stagger-3 { animation-delay: 0.3s; opacity: 0; }
-
         /* Container */
         .container {
             max-width: 900px;
@@ -81,7 +77,7 @@
         .logo {
             width: 200px;
             height: auto;
-            margin-bottom: 30px;
+            margin: 0 auto 30px;
         }
 
         .logo img {
@@ -122,14 +118,14 @@
             margin: 0 auto;
         }
 
-        /* Intro Section */
-        .intro-section {
+        /* Benefits Section */
+        .benefits-section {
             background: var(--cream);
-            padding: 50px 20px;
+            padding: 60px 20px;
             position: relative;
         }
 
-        .intro-section::before {
+        .benefits-section::before {
             content: '';
             position: absolute;
             top: -25px;
@@ -140,44 +136,9 @@
             border-radius: 50% 50% 0 0;
         }
 
-        .intro-box {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 30px rgba(244, 123, 32, 0.1);
-            border-right: 5px solid var(--green-dino);
-        }
-
-        .intro-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--orange-dark);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .intro-title i {
-            color: var(--green-dino);
-            font-size: 1.5rem;
-        }
-
-        .intro-text {
-            color: var(--text-medium);
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        /* Topics Section */
-        .topics-section {
-            padding: 60px 20px;
-        }
-
         .section-title {
             font-size: clamp(1.6rem, 4vw, 2.2rem);
             font-weight: 900;
-            color: var(--cream);
             text-align: center;
             margin-bottom: 35px;
             display: flex;
@@ -186,17 +147,240 @@
             gap: 12px;
         }
 
+        .section-title.dark {
+            color: var(--orange-dark);
+        }
+
+        .section-title.light {
+            color: var(--cream);
+        }
+
         .section-title i {
             font-size: 1.8rem;
         }
 
-        /* Accordion Topics */
-        .topic-item {
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(244, 123, 32, 0.1);
+            border-right: 5px solid var(--green-dino);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(244, 123, 32, 0.15);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--orange-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .benefit-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .benefit-text {
+            font-size: 1rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 60px 20px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-right: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 8px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -30px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            background: var(--green-dino);
+            border-radius: 50%;
+            border: 4px solid var(--orange-main);
+            z-index: 1;
+        }
+
+        .timeline-card {
             background: var(--cream);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateX(-3px);
+        }
+
+        .timeline-header {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .timeline-header:hover {
+            background: rgba(244, 123, 32, 0.05);
+        }
+
+        .timeline-number {
+            width: 36px;
+            height: 36px;
+            background: var(--orange-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-title {
+            flex: 1;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .timeline-toggle {
+            color: var(--orange-main);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-toggle i {
+            font-size: 1.5rem;
+        }
+
+        .timeline-card.active .timeline-toggle {
+            transform: rotate(180deg);
+        }
+
+        .timeline-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .timeline-card.active .timeline-content {
+            max-height: 500px;
+        }
+
+        .timeline-inner {
+            padding: 0 25px 25px;
+            border-top: 1px solid rgba(244, 123, 32, 0.1);
+        }
+
+        .timeline-description {
+            color: var(--text-medium);
+            font-size: 1rem;
+            padding-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-points {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-points li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .timeline-points li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--green-dino);
+            border-radius: 50%;
+        }
+
+        /* More Topics Section */
+        .more-section {
+            background: var(--cream);
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .more-section::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: var(--cream);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .topic-item {
+            background: white;
             border-radius: 16px;
             margin-bottom: 15px;
             overflow: hidden;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
         }
 
@@ -205,7 +389,7 @@
         }
 
         .topic-header {
-            padding: 20px 25px;
+            padding: 18px 22px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -217,43 +401,40 @@
             background: rgba(244, 123, 32, 0.05);
         }
 
-        .topic-number {
+        .topic-icon {
             width: 40px;
             height: 40px;
-            background: var(--orange-main);
-            color: white;
-            border-radius: 50%;
+            background: var(--green-dino);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 900;
-            font-size: 1.1rem;
             flex-shrink: 0;
-            box-shadow: 2px 2px 0 var(--orange-dark);
+        }
+
+        .topic-icon i {
+            font-size: 1.3rem;
+            color: white;
         }
 
         .topic-title {
             flex: 1;
-            font-size: 1.15rem;
+            font-size: 1rem;
             font-weight: 700;
-            color: var(--orange-dark);
+            color: var(--text-dark);
         }
 
         .topic-toggle {
-            width: 32px;
-            height: 32px;
-            background: var(--green-dino);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: transform 0.3s ease, background 0.3s ease;
+            color: var(--orange-main);
+            transition: transform 0.3s ease;
+        }
+
+        .topic-toggle i {
+            font-size: 1.4rem;
         }
 
         .topic-item.active .topic-toggle {
             transform: rotate(180deg);
-            background: var(--orange-main);
         }
 
         .topic-content {
@@ -263,122 +444,26 @@
         }
 
         .topic-item.active .topic-content {
-            max-height: 600px;
+            max-height: 400px;
         }
 
         .topic-inner {
-            padding: 0 25px 25px 80px;
+            padding: 0 22px 22px;
+            border-top: 1px solid rgba(244, 123, 32, 0.1);
         }
 
-        .topic-description {
+        .topic-text {
             color: var(--text-medium);
-            font-size: 1rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            padding-top: 18px;
             line-height: 1.7;
-        }
-
-        .topic-points {
-            list-style: none;
-        }
-
-        .topic-points li {
-            padding: 10px 0;
-            padding-right: 30px;
-            position: relative;
-            color: var(--text-dark);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-        }
-
-        .topic-points li:last-child {
-            border-bottom: none;
-        }
-
-        .topic-points li::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: var(--green-dino);
-            border-radius: 50%;
-        }
-
-        /* Key Messages Section */
-        .messages-section {
-            background: linear-gradient(135deg, var(--green-dino) 0%, var(--green-dark) 100%);
-            padding: 60px 20px;
-            position: relative;
-        }
-
-        .messages-section::before {
-            content: '';
-            position: absolute;
-            top: -25px;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background: linear-gradient(135deg, var(--green-dino) 0%, var(--green-dark) 100%);
-            border-radius: 50% 50% 0 0;
-        }
-
-        .messages-section .section-title {
-            color: white;
-        }
-
-        .messages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .message-card {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .message-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .message-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-        }
-
-        .message-icon i {
-            font-size: 1.8rem;
-            color: var(--orange-main);
-        }
-
-        .message-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--green-dark);
-            margin-bottom: 8px;
-        }
-
-        .message-text {
-            color: var(--text-medium);
-            font-size: 0.9rem;
-            line-height: 1.6;
         }
 
         /* Footer */
         .footer {
-            background: var(--orange-dark);
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
+            background: var(--orange-dark);
         }
 
         .footer-logo {
@@ -392,65 +477,22 @@
         }
 
         .footer-text {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
 
         .footer-tagline {
-            color: white;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-top: 8px;
+            font-size: 0.95rem;
+            opacity: 0.9;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header {
-                padding: 30px 20px;
-            }
-
-            .logo {
-                width: 160px;
-            }
-
-            .topic-inner {
-                padding-right: 25px;
-            }
-
-            .intro-section::before,
-            .messages-section::before {
-                height: 35px;
-                top: -17px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .topic-header {
-                padding: 15px 20px;
-            }
-
-            .topic-number {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-
-            .topic-title {
-                font-size: 1rem;
-            }
-
-            .messages-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-            }
-
-            .message-card {
-                padding: 20px 15px;
-            }
+        .footer-tagline i {
+            color: var(--green-dino);
         }
     </style>
 </head>
@@ -461,199 +503,329 @@
         <div class="logo animate-float">
             <img src="images/logo.png" alt="JUNIOREX">
         </div>
-        
-        <div class="episode-label fade-in-up stagger-1">
+        <div class="episode-label">
             <i class="ti ti-microphone"></i>
-            <span>תדריך פרק</span>
+            תדריך פרק
         </div>
-        
-        <h1 class="header-title fade-in-up stagger-2">AI ועיצוב UI/UX</h1>
-        <p class="header-subtitle fade-in-up stagger-3">מדריך לג'וניורים - איך לא רק לשרוד אלא לפרוח בעידן החדש</p>
+        <h1 class="header-title">AI ועיצוב UI/UX</h1>
+        <p class="header-subtitle">איך לא רק לשרוד אלא לפרוח בעידן החדש - סיפור אמיתי מהשטח</p>
     </header>
 
-    <!-- Intro Section -->
-    <section class="intro-section">
+    <!-- Benefits Section -->
+    <section class="benefits-section">
         <div class="container">
-            <div class="intro-box">
-                <h2 class="intro-title">
-                    <i class="ti ti-info-circle"></i>
-                    על מה הפרק הזה?
-                </h2>
-                <p class="intro-text">
-                    שיחה מקצועית על איך כלי AI משנים את עולם העיצוב הדיגיטלי. נספר סיפור אמיתי של הטמעת AI בארגון, נדבר על הפחדים האמיתיים שעולים (ולמה הם לגיטימיים), ונסביר למה דווקא ג'וניורים שנכנסים עכשיו לתעשייה נמצאים בעמדה טובה - אם הם יודעים מה לעשות.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Topics Section -->
-    <section class="topics-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="ti ti-list-details"></i>
-                מבנה הפרק
+            <h2 class="section-title dark">
+                <i class="ti ti-target-arrow"></i>
+                למה לשמוע את הפרק הזה?
             </h2>
             
-            <div class="topic-item">
-                <div class="topic-header" onclick="toggleTopic(this)">
-                    <span class="topic-number">1</span>
-                    <span class="topic-title">הרקע - עולם ה-UI/UX לפני המהפכה</span>
-                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
-                </div>
-                <div class="topic-content">
-                    <div class="topic-inner">
-                        <p class="topic-description">מה עשה מעצב UI/UX "קלאסי", הפער ההיסטורי בין עיצוב לפיתוח, ולמה כלים גנריים כמו Lovable ו-Base44 לא הצליחו להיכנס לארגונים.</p>
-                        <ul class="topic-points">
-                            <li>התפקיד המסורתי: מחקר, אפיון, עיצוב, אב-טיפוס, עבודה מול פיתוח</li>
-                            <li>בעיית ה-Handoff: הפער בין מה שבפיגמה למה שעל המסך</li>
-                            <li>Design System: למה נוצר ומה הוא אמור לפתור</li>
-                            <li>הבעיה עם כלים גנריים: "סבבה" לא מספיק טוב לארגון</li>
-                        </ul>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="ti ti-building-factory-2"></i>
                     </div>
-                </div>
-            </div>
-
-            <div class="topic-item">
-                <div class="topic-header" onclick="toggleTopic(this)">
-                    <span class="topic-number">2</span>
-                    <span class="topic-title">נקודת המפנה - הטמעת AI בארגון</span>
-                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
-                </div>
-                <div class="topic-content">
-                    <div class="topic-inner">
-                        <p class="topic-description">סיפור אמיתי של הטמעת Cursor ושיטת B-MAD בארגון - מה עבד, מה לא, והרגע שבו הקוד הראשון עלה לפרודקשן.</p>
-                        <ul class="topic-points">
-                            <li>ההבדל בין לעבוד עם AI לבד לבין להטמיע בארגון</li>
-                            <li>Cursor: IDE עם AI שמבין קוד קיים</li>
-                            <li>B-MAD: שיטת עבודה עם סוכני AI (Builder, Measurer, Analyzer, Decider)</li>
-                            <li>פרויקט Self Service: הוכחה שזה באמת עובד</li>
-                            <li>המעבר מ"One day" ל"Day one"</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="topic-item">
-                <div class="topic-header" onclick="toggleTopic(this)">
-                    <span class="topic-number">3</span>
-                    <span class="topic-title">הפחד - "למה שלא יפטרו אותי?"</span>
-                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
-                </div>
-                <div class="topic-content">
-                    <div class="topic-inner">
-                        <p class="topic-description">הפחדים האמיתיים שעולים כשרואים AI בפעולה - ולמה חשוב להכיר בהם במקום להתעלם.</p>
-                        <ul class="topic-points">
-                            <li>טשטוש גבולות: מפתח מעצב, מעצב כותב קוד - מי צריך את מי?</li>
-                            <li>ישות חדשה ברמה גבוהה: AI מוציא תוצרים שאנשי מקצוע היו אמורים לתת</li>
-                            <li>אנשים בלי ניסיון מצליחים: ג'וניור עם AI vs סיניור בלי</li>
-                            <li>שאלת הרלוונטיות: אם AI יכול ללמד הכל - למה צריך אותי?</li>
-                            <li>למה הפחד הזה לגיטימי ואנושי</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="topic-item">
-                <div class="topic-header" onclick="toggleTopic(this)">
-                    <span class="topic-number">4</span>
-                    <span class="topic-title">למה בכל זאת לא לפחד</span>
-                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
-                </div>
-                <div class="topic-content">
-                    <div class="topic-inner">
-                        <p class="topic-description">התשובות האמיתיות לפחדים - למה AI הוא כלי ולא מחליף, ולמה הידע המקצועי עדיין קריטי.</p>
-                        <ul class="topic-points">
-                            <li>המשפט המרכזי: "AI יעשה מה שתגידי לו - את צריכה לדעת מה להגיד"</li>
-                            <li>דוגמה: סיפור ה-Border Radius (7 סוגים במקום 3)</li>
-                            <li>למה גנריות לא עובדת בארגון - צריך התאמה מדויקת</li>
-                            <li>הטיעון ההיסטורי: Bootstrap קיים מ-2011, מעצבים לא נעלמו</li>
-                            <li>ההבדל בין "להשתמש בכלי" ל"לדעת להשתמש נכון"</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="topic-item">
-                <div class="topic-header" onclick="toggleTopic(this)">
-                    <span class="topic-number">5</span>
-                    <span class="topic-title">השינוי בתפקיד - מעצבת שכותבת קוד</span>
-                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
-                </div>
-                <div class="topic-content">
-                    <div class="topic-inner">
-                        <p class="topic-description">איך התפקיד של מעצב UI/UX משתנה בפועל - חלוקת עבודה חדשה והאתגרים שבדרך.</p>
-                        <ul class="topic-points">
-                            <li>הרעיון "העקום": לעבוד הפוך - מקוד לפיגמה במקום להפך</li>
-                            <li>למה לייצר בפיגמה משהו שכבר קיים בקוד?</li>
-                            <li>חלוקת עבודה חדשה: מעצבת מפתחת קומפוננטות, מפתח כותב לוגיקה</li>
-                            <li>האתגרים: Storybook, Code Review, שמירה על סדר</li>
-                            <li>התוצאה: תהליך מקבילי עם פחות "אבוד בתרגום"</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="topic-item">
-                <div class="topic-header" onclick="toggleTopic(this)">
-                    <span class="topic-number">6</span>
-                    <span class="topic-title">המסר לג'וניורים - איך להתבלט</span>
-                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
-                </div>
-                <div class="topic-content">
-                    <div class="topic-inner">
-                        <p class="topic-description">טיפים מעשיים למי שנכנס עכשיו לתעשייה - ולמה דווקא חוסר הניסיון יכול להיות יתרון.</p>
-                        <ul class="topic-points">
-                            <li>היתרון של להיות בתחילת הדרך: אין הרגלים ישנים לשבור</li>
-                            <li>ותיקים לפעמים שחוקים - לא לכולם יש מוטיבציה ללמוד חדש</li>
-                            <li>מה לעשות בפועל: ללמוד כלים, להבין תמונה גדולה, לקפוץ למים</li>
-                            <li>על ערך עצמי וביטחון מקצועי</li>
-                            <li>פעולה חשובה יותר מידע</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Key Messages Section -->
-    <section class="messages-section">
-        <div class="container">
-            <h2 class="section-title">
-                <i class="ti ti-bulb"></i>
-                מסרים מרכזיים
-            </h2>
-            
-            <div class="messages-grid">
-                <div class="message-card">
-                    <div class="message-icon">
-                        <i class="ti ti-tool"></i>
-                    </div>
-                    <h3 class="message-title">AI הוא כלי</h3>
-                    <p class="message-text">הכלי טוב כמו מי שמפעיל אותו</p>
+                    <h3 class="benefit-title">סיפור אמיתי מהשטח</h3>
+                    <p class="benefit-text">לא תיאוריה - מה באמת קרה כשארגון (PassportCard) הטמיע AI בתהליכי העיצוב והפיתוח שלו</p>
                 </div>
 
-                <div class="message-card">
-                    <div class="message-icon">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="ti ti-mood-heart"></i>
+                    </div>
+                    <h3 class="benefit-title">להבין את הפחד (ולהתגבר)</h3>
+                    <p class="benefit-text">למה זה מפחיד לראות AI בפעולה, ולמה בכל זאת אין סיבה להיבהל - עם דוגמאות קונקרטיות</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="ti ti-transform"></i>
+                    </div>
+                    <h3 class="benefit-title">לראות איך התפקיד משתנה</h3>
+                    <p class="benefit-text">מעצבת שהתחילה לפתח קומפוננטות בקוד - בלי להפוך למפתחת. חלוקת עבודה חדשה בפועל</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
                         <i class="ti ti-rocket"></i>
                     </div>
-                    <h3 class="message-title">יתרון לג'וניורים</h3>
-                    <p class="message-text">אפשר ללמוד נכון מההתחלה</p>
+                    <h3 class="benefit-title">טיפים מעשיים לג'וניורים</h3>
+                    <p class="benefit-text">מה לעשות כדי להתבלט ולהיות רלוונטי בעידן החדש - ולמה דווקא חוסר ניסיון יכול להיות יתרון</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title light">
+                <i class="ti ti-timeline"></i>
+                הסיפור שלנו
+            </h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card" onclick="toggleTimeline(this)">
+                        <div class="timeline-header">
+                            <span class="timeline-number">1</span>
+                            <span class="timeline-title">הרקע - בן ועדן ב-PassportCard</span>
+                            <span class="timeline-toggle"><i class="ti ti-chevron-down"></i></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-inner">
+                                <p class="timeline-description">בן מקבל תפקיד AI Champion בחברה. המטרה: להביא ערך אמיתי מ-AI לתהליכי העבודה.</p>
+                                <ul class="timeline-points">
+                                    <li>PassportCard עברה ממערכות של ספקים חיצוניים לצוות טכנולוגי פנימי</li>
+                                    <li>הוקמה מחלקת LABS עם מפתחים, UX/UI, מאפיינים</li>
+                                    <li>Design System היה קונספט בלבד - לא היה מאגר קומפוננטות מסודר</li>
+                                    <li>אתגר: איך להפוך AI מ"פוטנציאל" לתוצאות אמיתיות?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="message-card">
-                    <div class="message-icon">
-                        <i class="ti ti-refresh"></i>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card" onclick="toggleTimeline(this)">
+                        <div class="timeline-header">
+                            <span class="timeline-number">2</span>
+                            <span class="timeline-title">הניסיונות הראשונים - מה לא עבד</span>
+                            <span class="timeline-toggle"><i class="ti ti-chevron-down"></i></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-inner">
+                                <p class="timeline-description">כלים כמו Lovable, Base44, ChatGPT - נשמעו מבטיחים אבל לא התאימו לעבודה ארגונית.</p>
+                                <ul class="timeline-points">
+                                    <li>התוצאות היו גנריות מדי - "סבבה יש Side-bar אבל זהו"</li>
+                                    <li>לא התאימו ל-Design Language הייחודי של הארגון</li>
+                                    <li>ארגון צריך תוצרים שמתאימים בדיוק לזהות הויזואלית שלו</li>
+                                    <li>ההתאמה הידנית לקחה יותר זמן מאשר לעשות מאפס</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="message-title">התפקיד מתפתח</h3>
-                    <p class="message-text">לא נעלם - משתנה ומתרחב</p>
                 </div>
 
-                <div class="message-card">
-                    <div class="message-icon">
-                        <i class="ti ti-player-play"></i>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card" onclick="toggleTimeline(this)">
+                        <div class="timeline-header">
+                            <span class="timeline-number">3</span>
+                            <span class="timeline-title">נקודת המפנה - Cursor + B-MAD</span>
+                            <span class="timeline-toggle"><i class="ti ti-chevron-down"></i></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-inner">
+                                <p class="timeline-description">השילוב של Cursor (סביבת פיתוח עם AI) ושיטת B-MAD הביא לפריצת דרך: קוד אמיתי לפרודקשן.</p>
+                                <ul class="timeline-points">
+                                    <li>Cursor: IDE עם AI שמבין קוד קיים והקשר ארגוני</li>
+                                    <li>B-MAD: שיטה שמחלקת עבודה לסוכני AI (Builder, Measurer, Analyzer, Decider)</li>
+                                    <li>פרויקט Self Service: פרויקט ישן, מורכב, מעבר בין Frameworks + נגישות</li>
+                                    <li>לראשונה - קוד שימושי שאפשר להעלות לפרודקשן</li>
+                                    <li>המעבר מ"One day" ל"Day one"</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="message-title">פעולה קודמת</h3>
-                    <p class="message-text">לקפוץ למים ולהתחיל</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card" onclick="toggleTimeline(this)">
+                        <div class="timeline-header">
+                            <span class="timeline-number">4</span>
+                            <span class="timeline-title">הבעיה החדשה - הקוד עובד, אבל איך הוא נראה?</span>
+                            <span class="timeline-toggle"><i class="ti ti-chevron-down"></i></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-inner">
+                                <p class="timeline-description">הצלחנו לייצר קוד עובד, אבל בלי Design System מסודר התוצאה הייתה בעייתית.</p>
+                                <ul class="timeline-points">
+                                    <li>בלי Design System מסודר, התוצאה הייתה "פרנקנשטיין"</li>
+                                    <li>Screenshots וקטעי קוד ישנים לא מספיקים</li>
+                                    <li>דוגמה: 7 סוגי Border Radius במקום 3 - AI לא יודע מה נכון לארגון</li>
+                                    <li>ככל שהפרויקט התקדם, האיכות הויזואלית ירדה</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card" onclick="toggleTimeline(this)">
+                        <div class="timeline-header">
+                            <span class="timeline-number">5</span>
+                            <span class="timeline-title">הרעיון של עדן - לעבוד הפוך</span>
+                            <span class="timeline-toggle"><i class="ti ti-chevron-down"></i></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-inner">
+                                <p class="timeline-description">במקום מפיגמה לקוד - למה לא מקוד לפיגמה? רעיון שנשמע "עקום" אבל שינה הכל.</p>
+                                <ul class="timeline-points">
+                                    <li>יש כבר קומפוננטות בקוד - למה לבנות מחדש בפיגמה?</li>
+                                    <li>הרעיון: לייצר HTML של הקומפוננטות ולהעביר לפיגמה</li>
+                                    <li>התפתחות: עדן מתחילה לפתח קומפוננטות חדשות ישירות ב-Cursor</li>
+                                    <li>לא "עצלנות" - אלא יעילות וחשיבה מחדש על התהליך</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card" onclick="toggleTimeline(this)">
+                        <div class="timeline-header">
+                            <span class="timeline-number">6</span>
+                            <span class="timeline-title">חלוקת העבודה החדשה - הגדרה מחדש</span>
+                            <span class="timeline-toggle"><i class="ti ti-chevron-down"></i></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-inner">
+                                <p class="timeline-description">לא סתם "מעצבת שכותבת קוד" - אלא הגדרה מחדש של גבולות הגזרה בין התפקידים.</p>
+                                <ul class="timeline-points">
+                                    <li>עדן: מפתחת קומפוננטות ויזואליות (איך דברים נראים ומתנהגים)</li>
+                                    <li>מפתח Frontend: כותב את הלוגיקה (מה קורה כשלוחצים)</li>
+                                    <li>מפתח נוסף: בודק גבולות גזרה ואינטגרציה</li>
+                                    <li>התוצאה: תהליך מקבילי, פחות Handoffs, פחות "אבוד בתרגום"</li>
+                                    <li>Code Review מהמפתחים - שמירה על איכות הקוד</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Topics Section -->
+    <section class="more-section">
+        <div class="container">
+            <h2 class="section-title dark">
+                <i class="ti ti-message-circle"></i>
+                עוד על מה נדבר בפרק
+            </h2>
+
+            <div class="topic-item" onclick="toggleTopic(this)">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="ti ti-heart-broken"></i>
+                    </div>
+                    <span class="topic-title">הרגע של עדן - "רעדתי כולי"</span>
+                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-inner">
+                        <p class="topic-text">הרגע שבו היא הבינה מה קורה. מפתח מייצר ממשקים בלי עזרתה. פיגמה פתאום נראית פחות הכרחית. הפחד האמיתי שעבר לה בראש: "למה שלא יפטרו אותי?" - ולמה חשוב לדבר על זה בגלוי.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-item" onclick="toggleTopic(this)">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="ti ti-history"></i>
+                    </div>
+                    <span class="topic-title">הטיעון ההיסטורי - Bootstrap קיים מ-2011</span>
+                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-inner">
+                        <p class="topic-text">Bootstrap קיים מ-2011, Material Design מ-2014. אם הלוגיקה של "יש כלים מוכנים = לא צריך מעצבים" הייתה נכונה - התפקיד כבר היה נעלם. אבל זה לא קרה. יש הבדל בין "להשתמש בכלי" לבין "לדעת איך להשתמש נכון".</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-item" onclick="toggleTopic(this)">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="ti ti-puzzle"></i>
+                    </div>
+                    <span class="topic-title">"פרנקנשטיין" - כשאין בקרה מקצועית</span>
+                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-inner">
+                        <p class="topic-text">ככל שהפרויקט התקדם, הוא נהיה יותר מכוער. AI מייצר בסיס טוב, אבל בלי עין מקצועית שמפקחת - האיכות יורדת. יש מצב שהגרסה הראשונה הייתה הכי טובה. זה בדיוק המקום של מומחיות אנושית.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-item" onclick="toggleTopic(this)">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="ti ti-shield-x"></i>
+                    </div>
+                    <span class="topic-title">ההתנגדויות מהשטח</span>
+                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-inner">
+                        <p class="topic-text">"לא, שוב פעם יהיה בלגן" - מפתחים ותיקים ספקנים. הם ראו כבר הבטחות שלא התממשו. הספקנות מוצדקת - אבל היא גם יכולה לחסום התקדמות. איך מתמודדים עם זה בצוות?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-item" onclick="toggleTopic(this)">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="ti ti-sparkles"></i>
+                    </div>
+                    <span class="topic-title">היתרון של להיות ג'וניור</span>
+                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-inner">
+                        <p class="topic-text">אין הרגלים ישנים לשבור. ותיקים בנו שיטות עבודה במשך שנים - לשנות דורש מאמץ גדול. "סיכוי גבוה שלא בא להם". ג'וניורים יכולים ללמוד את השיטות החדשות נכון מההתחלה, בלי מטען.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-item" onclick="toggleTopic(this)">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="ti ti-award"></i>
+                    </div>
+                    <span class="topic-title">על ערך עצמי מקצועי</span>
+                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-inner">
+                        <p class="topic-text">"אני נחוצה. צריך אותי. אני שווה משהו. אני מביאה ערך אמיתי למקום." - זה לא רק עניין של מיומנויות טכניות. זה גם עניין של ביטחון עצמי מקצועי, לדעת מה אתם שווים ולהיות מסוגלים לבטא את זה.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-item" onclick="toggleTopic(this)">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="ti ti-arrows-shuffle"></i>
+                    </div>
+                    <span class="topic-title">מה עם תפקידים אחרים?</span>
+                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-inner">
+                        <p class="topic-text">עדן על מאפיינים: "גם תפקיד של מאפיין לא יישאר אבן דרך. הוא יצטרך להיות בבסיס שלו משהו אחר ועל הדרך מאפיין." השינוי לא עוצר ב-UI/UX - הוא משפיע על כל התפקידים.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topic-item" onclick="toggleTopic(this)">
+                <div class="topic-header">
+                    <div class="topic-icon">
+                        <i class="ti ti-calendar-event"></i>
+                    </div>
+                    <span class="topic-title">"One Day or Day One"</span>
+                    <span class="topic-toggle"><i class="ti ti-chevron-down"></i></span>
+                </div>
+                <div class="topic-content">
+                    <div class="topic-inner">
+                        <p class="topic-text">חודשים של "אתם תראו בעתיד", "One day זה יעבוד" - ופתאום זה קורה באמת. המעבר מ"יום אחד נוכל" ל"יום ראשון של דרך חדשה". הרגע שבו הפוטנציאל הופך למציאות.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -674,16 +846,29 @@
     </footer>
 
     <script>
-        function toggleTopic(header) {
-            const item = header.parentElement;
-            const wasActive = item.classList.contains('active');
+        function toggleTimeline(card) {
+            const wasActive = card.classList.contains('active');
             
-            // Close all topics
-            document.querySelectorAll('.topic-item').forEach(topic => {
-                topic.classList.remove('active');
+            // Close all timeline cards
+            document.querySelectorAll('.timeline-card').forEach(c => {
+                c.classList.remove('active');
             });
             
-            // Open clicked topic if it wasn't active
+            // Open clicked card if it wasn't active
+            if (!wasActive) {
+                card.classList.add('active');
+            }
+        }
+
+        function toggleTopic(item) {
+            const wasActive = item.classList.contains('active');
+            
+            // Close all topic items
+            document.querySelectorAll('.topic-item').forEach(t => {
+                t.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
             if (!wasActive) {
                 item.classList.add('active');
             }
@@ -704,7 +889,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.topic-item, .message-card').forEach((el, index) => {
+        document.querySelectorAll('.benefit-card, .timeline-item, .topic-item').forEach((el, index) => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(15px)';
             el.style.transition = `all 0.5s ease ${index * 0.08}s`;
